@@ -39,19 +39,18 @@ is.array;
 is.string;
  let ary=is.string(list)?list.split('\n'):list
  let max=ary.length
+ let cr=Math.min(max,9)
  let offset=n //0-(max-10)
  let cursor=n //0-9
  ;
 
- if(KEY==='^'&&cursor===0) offset+=9;
+ if(KEY==='^'&&cursor===0&&cr===9) offset+=cr;
  if(KEY==='^'&&cursor!=0) cursor--;
- if(KEY==='v'&&cursor===9) offset++;
- if(KEY==='v'&&cursor!=9) cursor++;
+ if(KEY==='v'&&cursor===cr&&cr===9) offset++;
+ if(KEY==='v'&&cursor!=cr) cursor++;
  //draw bar
  return (offset%max+cursor)
 }
-
-
 
 
 ```
